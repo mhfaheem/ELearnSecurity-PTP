@@ -1,0 +1,67 @@
+# theharvester -d elsfoo.com -l 100 -b google
+
+OUTPUT
+
+Harvesting results
+No IP addresses found
+
+
+[+] Emails found:
+------------------
+info@elsfoo.com
+f_otavalli@elsfoo.com
+last@elsfoo.com
+i@elsfoo.com
+contactus@elsfoo.com
+CFOmarhightower@elsfoo.com
+mike.ferrari@elsfoo.com
+ 
+[+] Hosts found in search engines:
+------------------------------------
+
+Total hosts: 3
+
+[-] Resolving hostnames IPs... 
+ 
+ns.elsfoo.com:empty
+ns2.elsfoo.com:162.254.149.249
+www.elsfoo.com:198.178.124.83
+
+
+
+# amass enum -src -brute -min-for-recursive 1 -d elsfoo.com
+
+OUTPUT
+
+[Brute Forcing]   intranet.elsfoo.com
+[Brute Forcing]   admin.elsfoo.com
+[SiteDossier]     www.elsfoo.com
+[HackerTarget]    ns2.elsfoo.com
+[Brute Forcing]   ns3.elsfoo.com
+[Brute Forcing]   private.elsfoo.com
+[Forward DNS]     elsfoo.com
+Average DNS queries performed: 184/sec, DNS names remaining: 1
+
+OWASP Amass v3.0.25                               https://github.com/OWASP/Amass
+--------------------------------------------------------------------------------
+7 names discovered - brute: 4, scrape: 1, api: 1, dns: 1
+--------------------------------------------------------------------------------
+ASN: 29802 - HVC-AS - HIVELOCITY
+	198.178.120.0/21  	6    Subdomain Name(s)
+	162.254.149.0/24  	1    Subdomain Name(s)
+
+
+
+
+# nslookup target.com
+# dig target.com +short  (+short is optional: returns minimal output)
+# nslookup type= PTR target.com
+# dig target.com PTR
+#nslookup type= MX target.com
+# dig target.com MX
+# nslookup type= NS target.com
+# dig target.com NS
+# nslookup
+> server target.com
+> ls d target.com
+# dig axfr @target.com target .com
